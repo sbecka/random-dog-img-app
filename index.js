@@ -13,6 +13,7 @@ function fetchDogs() {
     let numberOfDogs = $("#number-of-dogs").val(); //target input value
 
     if (numberOfDogs === '') { //default show 3 images
+
         console.log(3);
         fetch(`https://dog.ceo/api/breeds/image/random/3`)
         .then(response => response.json())
@@ -20,6 +21,7 @@ function fetchDogs() {
         .catch(error => alert(`Dog API Server is down.`));
         
     } else if (numberOfDogs >= 1 && numberOfDogs <= 50) { //between 1-50 images
+
         console.log(numberOfDogs);
         fetch(`https://dog.ceo/api/breeds/image/random/${numberOfDogs}`)
         .then(response => response.json())
@@ -32,6 +34,7 @@ function fetchDogs() {
 };
 
 function showTheDogs(responseJson) {
+    
     $(".results").show();
     $(".display-images").empty(); //empty any images shown before
     let dogArray = responseJson.message; //response is an array of urls
